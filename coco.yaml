@@ -1,0 +1,6 @@
+# 코코 데이터셋 경로
+train: C:\Users\user\Desktop\office\yolov8\dataset\train\images
+val: C:\Users\user\Desktop\office\yolov8\dataset\val\images
+
+nc: 1  # 클래스 1개 (사람)
+names: ['person']
