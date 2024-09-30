@@ -14,7 +14,7 @@ def convert_to_yolo_format(json_file, images_dir, labels_dir, outputImageDir):
         width = item['width']  # 이미지 너비
         height = item['height']  # 이미지 높이
 
-        # 현재 이미지에 대한 주석 찾기
+        # 현재 이미지에 대한 주석 찾기 
         annotations = [a for a in data['annotations'] if a['image_id'] == image_id]
 
         yolo_labels = []
