@@ -2,15 +2,22 @@
 from ultralytics import YOLO
 
 # 학습된 모델 로드
-model = YOLO('runs/detect/train2/weights/best.pt')
+# model = YOLO('runs/detect/train10/weights/best.pt')
+
+# 기본 학습 모델 로드
+model = YOLO('yolo8n.pt')
 
 # 예측할 이미지 경로 (바깥단에 위치하면 됨)
-image_path = 'human1.jpg'
+image_path = 'imageTest/human15.jpg'
 
 # 이미지에서 객체 탐지
-results = model.predict(source=image_path, iou=0.1, conf=0.15)
+#human 1 ( iou= 0.45 , conf=0.1)
+results = model.predict(source=image_path, iou=0.45, conf=0.02, classes=0)
+
+#human 11 ( iou= )
 
 
 # 탐지된 결과 시각화 리스트 가능(jpg 갯수에 따라) []
 results[0].show()
+
 
