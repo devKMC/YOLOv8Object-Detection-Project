@@ -41,3 +41,25 @@ source/images/val2017: 2017년 검증 데이터에 해당하는 이미지 파일
 best.pt: 최고의 성능을 가진 모델
 epoch_10.pt 및 epoch_20.pt: 각 에포크에서의 모델 상태를 저장
 이 과정을 통해 효과적인 객체 탐지 모델을 개발
+
+파일 내용 정리
+bestptListTest.py: 최상의 모델 가중치를 테스트하는 리스트 스크립트
+bestptTest.py: 최상의 모델 가중치를 사용하여 테스트하는 스크립트
+coco.yaml: COCO 데이터셋 구성 파일
+confusionMatrixTest.py: 혼동 행렬을 생성하여 모델 성능을 평가하는 스크립트
+cudaAugmentationTrain.py: CUDA를 이용한 데이터 증강 훈련 스크립트
+cudaTest.py: CUDA를 이용한 테스트 스크립트
+cudaTrain.py: YOLO 모델을 위한 CUDA 훈련 스크립트
+download_dataset.py: 데이터셋을 다운로드하는 스크립트
+hyp.yaml: 하이퍼파라미터 설정 파일
+lost.py: 훈련 중 손실을 기록하는 스크립트
+quality.py: 모델 품질을 평가하는 스크립트
+readme.txt: 프로젝트 설명 및 지침을 담고 있는 텍스트 파일
+scipt.py: 데이터 증강 및 이미지 크기 업데이트를 포함한 스크립트
+train.py: YOLO 모델 훈련 스크립트
+yolo11n.pt: YOLOv8 모델 가중치 파일
+yolo8n-p2.yaml: YOLOv8 모델 구성 파일
+yolo_pretrained_inference.py: 사전 훈련된 YOLO 모델로 추론하는 스크립트
+yolov8-p2.yaml: YOLOv8 p2 모델 구성 파일
+yolov8n.pt: YOLOv8n 모델 가중치 파일
+yolov8s.pt: YOLOv8s 모델 가중치 파일
