@@ -1,7 +1,7 @@
 import os
 from ultralytics import YOLO
 
-model = YOLO('runs/detect/train10/weights/best.pt')
+model = YOLO('runs/detect/train7/weights/best.pt')
 
 root = os.getcwd()
 image_folder = 'imageTest'

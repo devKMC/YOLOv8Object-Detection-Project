@@ -1,6 +1,21 @@
 # 코코 데이터셋 경로
-train: C:\Users\user\Desktop\office\yolov8\dataset\train\images
-val: C:\Users\user\Desktop\office\yolov8\dataset\val\images
+# train: 
+#   - C:/Users/user/Desktop/office/yolov8/dataset/train/images  # 훈련 이미지 경로
+#   - C:/Users/user/Desktop/office/yolov8/dataset/train/labels  # 훈련 레이블 경로
 
+# val: 
+#   - C:/Users/user/Desktop/office/yolov8/dataset/val/images    # 검증 이미지 경로
+#   - C:/Users/user/Desktop/office/yolov8/dataset/val/labels     # 검증 레이블 경로
+
+
+# 증강 전용 데이터셋 경로
+train: 
+  - C:/Users/user/Desktop/office/yolov8/newdataset/train/images  
+  - C:/Users/user/Desktop/office/yolov8/newdataset/train/labels  
+
+val: 
+  - C:/Users/user/Desktop/office/yolov8/newdataset/val/images    
+  - C:/Users/user/Desktop/office/yolov8/newdataset/val/labels    
+  
 nc: 1  # 클래스 1개 (사람)
 names: ['person']

@@ -2,17 +2,19 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     # 이전 훈련 상태에서 가중치 로드
-    # model = YOLO('yolo8n-p2.yaml').load('C:/Users/user/Desktop/office/yolov8/runs/detect/train4/weights/last.pt')
+    # model = YOLO('C:/Users/user/Desktop/office/yolov8/runs/detect/train15/weights/last.pt')
+    # 첫 학습할때의 로드
     model = YOLO('yolov8n-p2.yaml').load('C:/Users/user/Desktop/office/yolov8/yolov8n.pt')
     
     # 이어서 모델 훈련
     model.train(data='coco.yaml', 
-                epochs=10,  # 추가로 훈련할 에포크 수
+                epochs=150,  # 추가로 훈련할 에포크 수
                 imgsz=1024, 
+                save_period=10,
+                patience=50,
+                device='0',
                 cls=0.0,
-                mosaic=0.0,
-                hsv_v=0.6, # 명도 
-                hsv_s=0.5  # 채도
+                # resume=True                #학습 이어서하기
                 # batch=16, 
                 # device='0', 
                 # workers=8, 
