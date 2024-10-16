@@ -1,34 +1,43 @@
-train 13 =      epochs=10, 
-                imgsz=1024, 
-                cls=0.0,
-                hsv_v=0.6,
-                hsv_s=0.5 
 
-train 14 =      data='coco.yaml', 
-                epochs=10,  # 추가로 훈련할 에포크 수
-                imgsz=1024, 
-                cls=0.0,
-                mosaic=1.0,  # 모자이크 증강 적용
-                hsv_h=0.02,  # 색조 조정
-                hsv_s=0.6,   # 채도 조정
-                hsv_v=0.5,   # 밝기 조정
-                degrees=10,  # 랜덤 회전 각도
-                translate=0.1,  # 이미지 평행 이동
-                scale=0.5,   # 이미지 스케일 조정
-                mixup=0.3,   # 믹스업 증강
-                copy_paste=0.2,  # 복사-붙여넣기 증강
-                erasing=0.3,  # 무작위 지우기
-                crop_fraction=0.9  # 중심 부분 강조 크롭
 
-train 15 =      model.train(data='coco.yaml', 
-                epochs=150,  # 추가로 훈련할 에포크 수
-                imgsz=1024, 
-                cls=0.0,
-                hsv_v=0.6, # 명도 
-                hsv_s=0.5,  # 채도
-                save_period=10,
-                patience=50,
-                device='0'
-                이미지 적게해서 돌림
+├─ dataset
+│  ├─ train
+│  │  ├─ images       # 학습용 이미지
+│  │  └─ labels       # 학습용 라벨
+│  └─ val
+│      ├─ images      # 검증용 이미지
+│      └─ labels      # 검증용 라벨
+├─ runs
+│  └─ detect
+│      └─ train
+│          ├─ weights # 학습된 모델 가중치
+│          │  ├─ best.pt         # 최고의 성능을 가진 모델 가중치
+│          │  ├─ epoch_10.pt      # 10 에포크 후의 모델 가중치
+│          │  └─ epoch_20.pt      # 20 에포크 후의 모델 가중치
+└─ source
+    ├─ annotations    # 주석 파일 (예: COCO 형식)
+    └─ images
+        ├─ train2017  # 학습 이미지 (2017)
+        └─ val2017    # 검증 이미지 (2017)
 
-train 16 = 15의 best pt로 재 학습
+데이터셋 설명
+dataset/train/images: 모델 학습에 사용되는 이미지 파일이 저장되는 디렉터리
+dataset/train/labels: 학습 이미지에 대한 주석(라벨) 파일이 저장되는 디렉터리
+dataset/val/images: 모델 검증에 사용되는 이미지 파일이 저장되는 디렉터리
+dataset/val/labels: 검증 이미지에 대한 주석(라벨) 파일이 저장되는 디렉터리
+runs/detect/train/weights: 모델 학습이 완료된 후 저장되는 가중치 파일
+best.pt: 최고의 성능을 가진 모델 가중치
+epoch_10.pt: 10 에포크 후의 모델 가중치
+epoch_20.pt: 20 에포크 후의 모델 가중치
+source/annotations: 데이터셋의 주석 파일이 저장되는 디렉터리입니다. (예: COCO 형식)
+source/images/train2017: 2017년 학습 데이터에 해당하는 이미지 파일이 저장되는 디렉터리
+source/images/val2017: 2017년 검증 데이터에 해당하는 이미지 파일이 저장되는 디렉터리
+
+학습 및 검증 과정
+데이터셋 준비: 위 구조에 맞게 학습 및 검증용 이미지와 라벨을 준비
+모델 학습: 준비된 데이터셋을 사용하여 모델을 학습
+모델 검증: 검증용 데이터셋을 사용하여 학습된 모델의 성능을 평가
+가중치 저장: 학습이 완료되면, 모델의 가중치를 지정된 디렉터리에 저장
+best.pt: 최고의 성능을 가진 모델
+epoch_10.pt 및 epoch_20.pt: 각 에포크에서의 모델 상태를 저장
+이 과정을 통해 효과적인 객체 탐지 모델을 개발
