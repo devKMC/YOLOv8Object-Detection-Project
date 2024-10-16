@@ -1,12 +1,22 @@
+COCO dataset Seource -> dataset create -> train
+seource에서 변환하여 dataset을 만들어 학습이나 검증 및 훈련
 
-
-├─ dataset
-│  ├─ train
-│  │  ├─ images       # 학습용 이미지
-│  │  └─ labels       # 학습용 라벨
-│  └─ val
-│      ├─ images      # 검증용 이미지
-│      └─ labels      # 검증용 라벨
+├─dataset
+│  ├─train
+│  │  ├─images        # 학습용 이미지
+│  │  └─labels        # 학습용 라벨
+│  └─val
+│      ├─images       # 검증용 이미지
+│      └─labels       # 검증용 라벨
+├─imageTest           # 테스트용 이미지
+│  └─output           # 테스트용 이미지 기반 테스트
+├─newDataset
+│  ├─train
+│  │  ├─images
+│  │  └─labels
+│  └─val
+│      ├─images
+│      └─labels
 ├─ runs
 │  └─ detect
 │      └─ train
@@ -47,15 +57,7 @@ bestptListTest.py: 최상의 모델 가중치를 테스트하는 리스트 스�
 bestptTest.py: 최상의 모델 가중치를 사용하여 테스트하는 스크립트
 coco.yaml: COCO 데이터셋 구성 파일
 confusionMatrixTest.py: 혼동 행렬을 생성하여 모델 성능을 평가하는 스크립트
-cudaAugmentationTrain.py: CUDA를 이용한 데이터 증강 훈련 스크립트
-cudaTest.py: CUDA를 이용한 테스트 스크립트
-cudaTrain.py: YOLO 모델을 위한 CUDA 훈련 스크립트
-download_dataset.py: 데이터셋을 다운로드하는 스크립트
-hyp.yaml: 하이퍼파라미터 설정 파일
-lost.py: 훈련 중 손실을 기록하는 스크립트
-quality.py: 모델 품질을 평가하는 스크립트
-readme.txt: 프로젝트 설명 및 지침을 담고 있는 텍스트 파일
-scipt.py: 데이터 증강 및 이미지 크기 업데이트를 포함한 스크립트
+cudaAugmentationTrain.py: CUDA를 이용한 데이터 트
 train.py: YOLO 모델 훈련 스크립트
 yolo11n.pt: YOLOv8 모델 가중치 파일
 yolo8n-p2.yaml: YOLOv8 모델 구성 파일
